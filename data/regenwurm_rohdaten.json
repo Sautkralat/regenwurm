@@ -1,0 +1,297 @@
+{
+    "offset": 0,
+    "limit": 1,
+    "endOfRecords": false,
+    "count": 2453,
+    "results": [
+        {
+            "key": 6003690269,
+            "datasetKey": "6ac3f774-d9fb-4796-b3e9-92bf6c81c084",
+            "publishingOrgKey": "bb646dff-a905-4403-a49b-6d378c2cf0d9",
+            "datasetCategory": [
+                "CitizenScience"
+            ],
+            "installationKey": "36cae45c-1983-48be-9cf9-0672c4a60612",
+            "hostingOrganizationKey": "bb646dff-a905-4403-a49b-6d378c2cf0d9",
+            "publishingCountry": "DE",
+            "protocol": "BIOCASE",
+            "lastCrawled": "2026-10-13T13:27:44.906+00:00",
+            "lastParsed": "2026-10-15T12:22:49.261+00:00",
+            "crawlId": 440,
+            "extensions": {
+                "http://rs.gbif.org/terms/1.0/Multimedia": [
+                    {
+                        "http://purl.org/dc/terms/license": "Copyright by the creator. For license and creator details, see https://nabu-naturgucker-beobachtungen.de/?sprache=en&bild=159674643.",
+                        "http://purl.org/dc/terms/format": "image/jpeg",
+                        "http://purl.org/dc/terms/identifier": "https://live.staticflickr.com/65535/55047920366_b199a00fda_b.jpg",
+                        "http://purl.org/dc/terms/references": "https://nabu-naturgucker-beobachtungen.de/?sprache=en&bild=159674643"
+                    },
+                    {
+                        "http://purl.org/dc/terms/license": "Copyright by the creator. For license and creator details, see https://nabu-naturgucker-beobachtungen.de/?sprache=en&bild=1324579075.",
+                        "http://purl.org/dc/terms/format": "image/jpeg",
+                        "http://purl.org/dc/terms/identifier": "https://live.staticflickr.com/65535/55047919991_a8183aaaf3_b.jpg",
+                        "http://purl.org/dc/terms/references": "https://nabu-naturgucker-beobachtungen.de/?sprache=en&bild=1324579075"
+                    },
+                    {
+                        "http://purl.org/dc/terms/license": "Copyright by the creator. For license and creator details, see https://nabu-naturgucker-beobachtungen.de/?sprache=en&bild=-2050079005.",
+                        "http://purl.org/dc/terms/format": "image/jpeg",
+                        "http://purl.org/dc/terms/identifier": "https://live.staticflickr.com/65535/55048264110_39bfbc1625_b.jpg",
+                        "http://purl.org/dc/terms/references": "https://nabu-naturgucker-beobachtungen.de/?sprache=en&bild=-2050079005"
+                    }
+                ]
+            },
+            "basisOfRecord": "HUMAN_OBSERVATION",
+            "occurrenceStatus": "PRESENT",
+            "classifications": {
+                "7ddf754f-d193-4cc9-b351-99906754a03b": {
+                    "usage": {
+                        "key": "6R26F",
+                        "name": "Lumbricus terrestris Linnaeus, 1758",
+                        "rank": "SPECIES",
+                        "code": "ZOOLOGICAL",
+                        "authorship": "Linnaeus, 1758",
+                        "genericName": "Lumbricus",
+                        "specificEpithet": "terrestris",
+                        "formattedName": "<i>Lumbricus</i> <i>terrestris</i> Linnaeus, 1758"
+                    },
+                    "acceptedUsage": {
+                        "key": "6R26F",
+                        "name": "Lumbricus terrestris Linnaeus, 1758",
+                        "rank": "SPECIES",
+                        "code": "ZOOLOGICAL",
+                        "authorship": "Linnaeus, 1758",
+                        "genericName": "Lumbricus",
+                        "specificEpithet": "terrestris",
+                        "formattedName": "<i>Lumbricus</i> <i>terrestris</i> Linnaeus, 1758"
+                    },
+                    "taxonomicStatus": "ACCEPTED",
+                    "classification": [
+                        {
+                            "key": "CS5HF",
+                            "name": "Eukaryota",
+                            "rank": "DOMAIN"
+                        },
+                        {
+                            "key": "N",
+                            "name": "Animalia",
+                            "rank": "KINGDOM"
+                        },
+                        {
+                            "key": "NN",
+                            "name": "Annelida",
+                            "rank": "PHYLUM"
+                        },
+                        {
+                            "key": "9H",
+                            "name": "Clitellata",
+                            "rank": "CLASS"
+                        },
+                        {
+                            "key": "B8W74",
+                            "name": "Oligochaeta",
+                            "rank": "SUBCLASS"
+                        },
+                        {
+                            "key": "84JRR",
+                            "name": "Crassiclitellata",
+                            "rank": "ORDER"
+                        },
+                        {
+                            "key": "84JS3",
+                            "name": "Lumbricina",
+                            "rank": "SUBORDER"
+                        },
+                        {
+                            "key": "84KFR",
+                            "name": "Lumbricidae",
+                            "rank": "FAMILY"
+                        },
+                        {
+                            "key": "84PTC",
+                            "name": "Lumbricus",
+                            "rank": "GENUS"
+                        },
+                        {
+                            "key": "6R26F",
+                            "name": "Lumbricus terrestris",
+                            "rank": "SPECIES"
+                        }
+                    ],
+                    "issues": []
+                },
+                "d7dddbf4-2cf0-4f39-9b2a-bb099caae36c": {
+                    "usage": {
+                        "key": "4410657",
+                        "name": "Lumbricus terrestris Linnaeus, 1758",
+                        "rank": "SPECIES",
+                        "code": "ZOOLOGICAL",
+                        "authorship": "Linnaeus, 1758",
+                        "genericName": "Lumbricus",
+                        "specificEpithet": "terrestris",
+                        "formattedName": "<i>Lumbricus</i> <i>terrestris</i> Linnaeus, 1758"
+                    },
+                    "acceptedUsage": {
+                        "key": "4410657",
+                        "name": "Lumbricus terrestris Linnaeus, 1758",
+                        "rank": "SPECIES",
+                        "code": "ZOOLOGICAL",
+                        "authorship": "Linnaeus, 1758",
+                        "genericName": "Lumbricus",
+                        "specificEpithet": "terrestris",
+                        "formattedName": "<i>Lumbricus</i> <i>terrestris</i> Linnaeus, 1758"
+                    },
+                    "taxonomicStatus": "ACCEPTED",
+                    "classification": [
+                        {
+                            "key": "1",
+                            "name": "Animalia",
+                            "rank": "KINGDOM"
+                        },
+                        {
+                            "key": "42",
+                            "name": "Annelida",
+                            "rank": "PHYLUM"
+                        },
+                        {
+                            "key": "255",
+                            "name": "Clitellata",
+                            "rank": "CLASS"
+                        },
+                        {
+                            "key": "5958860",
+                            "name": "Crassiclitellata",
+                            "rank": "ORDER"
+                        },
+                        {
+                            "key": "6103",
+                            "name": "Lumbricidae",
+                            "rank": "FAMILY"
+                        },
+                        {
+                            "key": "9806438",
+                            "name": "Lumbricus",
+                            "rank": "GENUS"
+                        },
+                        {
+                            "key": "4410657",
+                            "name": "Lumbricus terrestris",
+                            "rank": "SPECIES"
+                        }
+                    ],
+                    "issues": []
+                }
+            },
+            "taxonKey": 4410657,
+            "kingdomKey": 1,
+            "phylumKey": 42,
+            "classKey": 255,
+            "orderKey": 5958860,
+            "familyKey": 6103,
+            "genusKey": 9806438,
+            "speciesKey": 4410657,
+            "acceptedTaxonKey": 4410657,
+            "scientificName": "Lumbricus terrestris Linnaeus, 1758",
+            "scientificNameAuthorship": "Linnaeus, 1758",
+            "acceptedScientificName": "Lumbricus terrestris Linnaeus, 1758",
+            "kingdom": "Animalia",
+            "phylum": "Annelida",
+            "order": "Crassiclitellata",
+            "family": "Lumbricidae",
+            "genus": "Lumbricus",
+            "species": "Lumbricus terrestris",
+            "genericName": "Lumbricus",
+            "specificEpithet": "terrestris",
+            "taxonRank": "SPECIES",
+            "taxonomicStatus": "ACCEPTED",
+            "decimalLatitude": 49.152138,
+            "decimalLongitude": 9.278395,
+            "coordinateUncertaintyInMeters": 250.0,
+            "continent": "EUROPE",
+            "gadm": {
+                "level0": {
+                    "gid": "DEU",
+                    "name": "Germany"
+                },
+                "level1": {
+                    "gid": "DEU.1_1",
+                    "name": "Baden-Württemberg"
+                },
+                "level2": {
+                    "gid": "DEU.1.18_1",
+                    "name": "Heilbronn"
+                },
+                "level3": {
+                    "gid": "DEU.1.18.16_1",
+                    "name": "Raum Weinsberg"
+                }
+            },
+            "year": 2026,
+            "month": 1,
+            "day": 15,
+            "eventDate": "2026-01-15T00:00",
+            "startDayOfYear": 15,
+            "endDayOfYear": 15,
+            "issues": [
+                "COORDINATE_ROUNDED",
+                "GEODETIC_DATUM_ASSUMED_WGS84",
+                "CONTINENT_DERIVED_FROM_COORDINATES"
+            ],
+            "lastInterpreted": "2026-10-15T12:22:49.261+00:00",
+            "references": "https://enjoynature.net/?gebiet=-106919023&datum=15.01.26&art=209389527",
+            "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+            "isSequenced": false,
+            "identifiers": [
+                {
+                    "identifier": "urn:catalog:NABU|naturgucker:NABU|naturgucker:-292980327"
+                }
+            ],
+            "media": [
+                {
+                    "type": "StillImage",
+                    "format": "image/jpeg",
+                    "references": "https://nabu-naturgucker-beobachtungen.de/?sprache=en&bild=159674643",
+                    "license": "Copyright by the creator. For license and creator details, see https://nabu-naturgucker-beobachtungen.de/?sprache=en&bild=159674643.",
+                    "identifier": "https://live.staticflickr.com/65535/55047920366_b199a00fda_b.jpg"
+                },
+                {
+                    "type": "StillImage",
+                    "format": "image/jpeg",
+                    "references": "https://nabu-naturgucker-beobachtungen.de/?sprache=en&bild=1324579075",
+                    "license": "Copyright by the creator. For license and creator details, see https://nabu-naturgucker-beobachtungen.de/?sprache=en&bild=1324579075.",
+                    "identifier": "https://live.staticflickr.com/65535/55047919991_a8183aaaf3_b.jpg"
+                },
+                {
+                    "type": "StillImage",
+                    "format": "image/jpeg",
+                    "references": "https://nabu-naturgucker-beobachtungen.de/?sprache=en&bild=-2050079005",
+                    "license": "Copyright by the creator. For license and creator details, see https://nabu-naturgucker-beobachtungen.de/?sprache=en&bild=-2050079005.",
+                    "identifier": "https://live.staticflickr.com/65535/55048264110_39bfbc1625_b.jpg"
+                }
+            ],
+            "facts": [],
+            "relations": [],
+            "isInCluster": false,
+            "recordedBy": "-688868827",
+            "dnaSequenceID": [],
+            "nucleotideSequence": [],
+            "geodeticDatum": "WGS84",
+            "class": "Clitellata",
+            "countryCode": "DE",
+            "recordedByIDs": [],
+            "identifiedByIDs": [],
+            "gbifRegion": "EUROPE",
+            "country": "Germany",
+            "publishedByGbifRegion": "EUROPE",
+            "catalogNumber": "-292980327",
+            "http://unknown.org/crawl_attempt": "441",
+            "institutionCode": "NABU|naturgucker",
+            "http://unknown.org/declaredCount": "22938907",
+            "locality": "Weinsberg Weidachstraße und Römerbad",
+            "http://unknown.org/status": "not_reviewed",
+            "http://unknown.org/allowCoordinatesFlipping": "true",
+            "collectionCode": "NABU|naturgucker",
+            "gbifID": "6003690269"
+        }
+    ],
+    "facets": []
+}

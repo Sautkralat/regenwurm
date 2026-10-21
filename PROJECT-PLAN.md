@@ -23,8 +23,8 @@ Die Karte zeigt **dokumentierte Nachweise**, keine vollständigen oder sicher ak
 
 | Meilenstein / Ergebnis | Lernthema | Mein Anteil | Möglicher Codex-Anteil | Prüfung | Status / Beleg |
 | --- | --- | --- | --- | --- | --- |
-| **1. Daten für drei Arten verstehen:** GBIF-Namen und Kennungen, eine Beispielmeldung je Art sowie geeignete Quellen für Steckbriefe sind dokumentiert. | API, JSON, Datenverständnis und Quellenkritik | **Selbst:** Beispielabfragen ausführen; Artname, Datum, Koordinaten, Quelle und Lizenz untersuchen. | **Codex:** aktuelle Taxonomie, Synonyme und fachliche Quellen prüfen; Grenzen der Artenbestimmung erklären. | Ich kann die benötigten Felder erklären und für jede Art eine passende Fundmeldung zeigen. | in Arbeit – fachliche Vorbereitung am 21.10.2026 geprüft, siehe unten; eigene Beispielmeldungen und Erklärungen noch offen |
-| **2. Kleinen Datenabruf erstellen:** Python speichert zunächst eine Seite mit Fundmeldungen als unveränderte JSON-Datei. | Requests, Funktionen, Dateien, Exceptions | **Selbst:** Abruf, Speicherung und verständliche Fehlermeldungen schreiben. | **Gemeinsam:** Abfrageparameter, Zeitüberschreitung und HTTP-Fehler besprechen; meinen Code prüfen. | Die Datei lässt sich erneut einlesen; ein fehlgeschlagener Abruf meldet einen verständlichen Fehler. | offen |
+| **1. Daten für drei Arten verstehen:** GBIF-Namen und Kennungen, eine Beispielmeldung je Art sowie geeignete Quellen für Steckbriefe sind dokumentiert. | API, JSON, Datenverständnis und Quellenkritik | **Selbst:** Beispielabfragen ausführen; Artname, Datum, Koordinaten, Quelle und Lizenz untersuchen. | **Codex:** aktuelle Taxonomie, Synonyme und fachliche Quellen prüfen; Grenzen der Artenbestimmung erklären. | Ich kann die benötigten Felder erklären und für jede Art eine passende Fundmeldung zeigen. | geprüft – abgeschlossen am 21.10.2026; fachliche Vorbereitung sowie eigene Beispielmeldungen und Felderklärungen geprüft, Belege unten |
+| **2. Kleinen Datenabruf erstellen:** Python speichert zunächst eine Seite mit Fundmeldungen als unveränderte JSON-Datei. | Requests, Funktionen, Dateien, Exceptions | **Selbst:** Abruf, Speicherung und verständliche Fehlermeldungen schreiben. | **Gemeinsam:** Abfrageparameter, Zeitüberschreitung und HTTP-Fehler besprechen; meinen Code prüfen. | Die Datei lässt sich erneut einlesen; ein fehlgeschlagener Abruf meldet einen verständlichen Fehler. | in Arbeit – pausiert am 21.10.2026; Abruf, Statuscode, Namenszugriff und JSON-Speicherung bestanden; nächster Schritt: Datei selbst mit Python einlesen, siehe Pausenstand |
 | **3. SQLite-Datenbank aufbauen:** Arten und Fundmeldungen sind über Schlüssel verknüpft. | Tabellen, Datentypen, Primär- und Fremdschlüssel, Python-SQLite | **Selbst:** Schema und parametrisierten Import schreiben; Transaktionen verwenden. | **Gemeinsam:** Modell prüfen und bei der Zuordnung von GBIF-Namen unterstützen. | Ein JOIN zeigt Artname und Fundort; ein erneuter Import desselben Datensatzes erzeugt keine zusätzliche Zeile. | offen |
 | **4. Verwendbaren Datenstand erzeugen:** Alle Ergebnisse der vereinbarten Abfragen werden seitenweise geladen, geprüft und ausgewertet. | Schleifen, Datenbereinigung, GROUP BY und COUNT | **Selbst:** Import erweitern, unbrauchbare Werte erkennen und SQL-Auswertungen schreiben. | **Gemeinsam:** GBIF-Seitennavigation und Abbruchbedingungen erarbeiten. **Codex:** fachliche Grenzfälle bei Taxonomie und Koordinaten beurteilen. | Importprotokoll nennt übernommene und verworfene Meldungen; SQL-Zählungen stimmen mit dem gespeicherten Bestand überein. | offen |
 | **5. Daten für die Webseite exportieren:** Ein Python-Skript erzeugt JSON aus SQL-Abfragen; drei Kurzporträts liegen mit Quellen vor. | JOINs, JSON-Export und verständliche Datenaufbereitung | **Selbst:** Abfragen und Export schreiben; Porträts in eigenen Worten verfassen. | **Codex:** Exportstruktur für die Karte festlegen sowie Fachangaben und Quellen prüfen. | Export ist gültiges JSON; Fundzahlen stimmen mit SQLite überein; jedes Porträt enthält belegte Aussagen. | offen |
@@ -58,10 +58,20 @@ Ein Planeintrag ist kein Umsetzungsauftrag. Meine Lernbereiche bearbeite ich sel
 
 ## Aktueller Schritt
 
-- **Meilenstein und genau ein Arbeitsauftrag:** Meilenstein 1 – eine GBIF-Fundmeldung von *Lumbricus terrestris* aus Deutschland abrufen und die Felder für Artname, Datum, Koordinaten, Quelle und Lizenz erläutern.
+- **Meilenstein und genau ein Arbeitsauftrag:** Meilenstein 2 – gespeicherte JSON-Daten erneut verwenden. Ich schreibe selbst einen getrennt ausführbaren Abschnitt oder ein kleines eigenes Skript, das `data/regenwurm_rohdaten.json` mit `json.load()` einliest und den wissenschaftlichen Namen der ersten Fundmeldung ausgibt, ohne erneuten API-Abruf.
 - **Wer bearbeitet ihn?** Ich selbst; Codex unterstützt bei Verständnisfragen.
-- **So prüfen wir das Ergebnis:** Die Antwort liegt vor und ich kann die genannten Felder sowie fehlende Angaben erklären.
-- **Bisheriges Ergebnis / offene Schwierigkeit:** Die grundsätzliche Datenverfügbarkeit wurde laut bisherigem Plan geprüft; in der fachlichen Prüfung vom 21.10.2026 wurde sie nicht erneut getestet. Codex hat die beauftragte Prüfung der GBIF-Zuordnungen, ausgewählter Synonyme und geeigneter Fachquellen durchgeführt (Belege unten). Meine Beispielmeldung und Erklärung stehen noch aus. Projektcode und Webseite sind noch nicht erstellt.
+- **So prüfen wir das nächste Ergebnis:** Mein Code und die Ausgabe liegen vor; ich erkläre den Unterschied zwischen `json.dump()` und `json.load()`. Der Leseversuch erfolgt ohne API-Abfrage.
+- **Bisheriges Ergebnis / offene Schwierigkeit:** Meilenstein 1 ist abgeschlossen; seine Belege und Prüfgrenzen stehen unten. In Meilenstein 2 sind der API-Abruf, die Ausgabe und Erklärung des Statuscodes `200`, der Zugriff auf den wissenschaftlichen Namen einschließlich Erklärung der Dictionary-Schlüssel und des Listenindex sowie die Speicherung der vollständigen Antwort bestanden. Fehlerbehandlung und Abschlussprüfung von Meilenstein 2 stehen noch aus. Eine Webseite ist noch nicht erstellt.
+
+### Pausenstand vom 21.10.2026
+
+- **Status:** Meilenstein 2 ist in Arbeit; auf meinen Wunsch pausiert. Nach dem Neustart beim oben genannten Lernauftrag fortsetzen.
+- **Vorhandener Code:** `regenwurm.py` ruft eine Seite von GBIF ab, wandelt die Antwort mit `response.json()` um und speichert das vollständige Objekt mit `json.dump()` nach `data/regenwurm_rohdaten.json`. Der Dateipfad wird relativ zum Skript über `Path(__file__).parent` gebildet. Ausgegeben werden Statuscode und wissenschaftlicher Name der ersten Fundmeldung.
+- **Ergebnisbelege:** Ich habe `200` und `Lumbricus terrestris Linnaeus, 1758` als Ausgabe gemeldet und den Attributzugriff sowie die verschachtelten Dictionary-/Listenzugriffe erklärt. Codex hat den Code gelesen und die gespeicherte Datei mit `json.load()` erfolgreich geprüft: gültiges JSON, oberste Felder `offset`, `limit`, `endOfRecords`, `count`, `results`, `facets`; eine Fundmeldung für *Lumbricus terrestris*. Der Netzwerkabruf wurde bei dieser Dateiprüfung nicht erneut ausgeführt.
+- **Genauer Wiedereinstieg:** Mein eigener Leseversuch mit `json.load()` und meine Erklärung von Lesen gegenüber Schreiben stehen noch aus. Codex gibt dafür keine fertige Lösung vorab.
+- **Weitere offene Punkte:** Zeitüberschreitung, HTTP-Fehler und verständliche Fehlermeldungen behandeln; anschließend die Abschlusskriterien von Meilenstein 2 prüfen.
+- **Vor dem Herunterfahren:** Alle offenen Dateien im Editor speichern. Diese Dokumentationsänderung verändert weder Code noch Rohdaten.
+- **Nach dem Neustart:** „Bitte am dokumentierten Pausenstand weitermachen.“ Codex liest zuerst den Plan und die direkt relevanten Dateien und gleicht sie mit diesem Stand ab.
 
 Nach Unterbrechungen werden Plan und Projektstand verglichen. Erst nach erfolgreicher Prüfung wird der nächste Meilenstein begonnen; Änderungen an Umfang und Aufgabenverteilung werden gemeinsam festgehalten.
 
@@ -142,6 +152,50 @@ Alle drei Listen meldeten `endOfRecords: true`; die Tabelle zeigt eine Auswahl.
   erläutert die erforderlichen Bestimmungsmerkmale und die Grenzen einfacher
   Feldschlüssel und Fotos. Ein Kurzporträt ersetzt keinen Bestimmungsschlüssel.
 
-**Noch offen:** Eigene Beispielmeldung und Erklärung für jede der drei Arten;
-später die selbst verfassten Steckbriefe mit Belegen für jede konkrete Aussage.
-Die fachliche Vorbereitung schließt Meilenstein 1 nicht ab.
+Die fachliche Vorbereitung und die nachfolgend dokumentierten eigenen
+Beispielmeldungen mit Felderklärungen schließen Meilenstein 1 gemeinsam ab.
+Die selbst verfassten Steckbriefe mit Belegen für konkrete Aussagen folgen
+in Meilenstein 5; die dort genannten Quellen- und Bestimmungsgrenzen gelten weiter.
+
+## Eigene Beispielmeldungen und Abschluss von Meilenstein 1
+
+**Abgeschlossen am 21.10.2026.** Ich habe die Beispielabfragen selbst ausgeführt,
+für die weiteren Arten den Parameter `taxonKey` angepasst und die Felder erklärt.
+Codex hat meine im Chat übermittelten Ausschnitte und Erklärungen geprüft.
+Die Live-Daten wurden dabei nicht unabhängig gegengeprüft; vollständige
+JSON-Antworten und einzelne GBIF-Fundkennungen (`key`) sind hier nicht dokumentiert.
+Die Suchantworten können sich bei einem erneuten Abruf ändern.
+
+### Ausgeführte Beispielabfragen
+
+- [Lumbricus terrestris](https://api.gbif.org/v1/occurrence/search?taxonKey=4410657&country=DE&hasCoordinate=true&hasGeospatialIssue=false&limit=1)
+- [Lumbricus rubellus](https://api.gbif.org/v1/occurrence/search?taxonKey=4410669&country=DE&hasCoordinate=true&hasGeospatialIssue=false&limit=1)
+- [Aporrectodea caliginosa](https://api.gbif.org/v1/occurrence/search?taxonKey=2307759&country=DE&hasCoordinate=true&hasGeospatialIssue=false&limit=1)
+
+Alle drei Abfragen filtern auf Deutschland (`country=DE`), vorhandene Koordinaten
+(`hasCoordinate=true`) und keine von GBIF markierten geografischen Probleme
+(`hasGeospatialIssue=false`). `limit=1` begrenzt die Antwort auf höchstens eine Meldung.
+
+### Übermittelte Werte
+
+| Feld | Lumbricus terrestris | Lumbricus rubellus | Aporrectodea caliginosa |
+| --- | --- | --- | --- |
+| `scientificName` | Lumbricus terrestris Linnaeus, 1758 | Lumbricus rubellus Hoffmeister, 1843 | Aporrectodea caliginosa (Savigny, 1826) |
+| `eventDate` | `2026-01-15T00:00` | `2026-03-15T18:23` | `2026-03-27T00:00` |
+| `decimalLatitude` | `49.152138` | `49.782333` | `50.903912` |
+| `decimalLongitude` | `9.278395` | `6.707246` | `6.854914` |
+| `datasetKey` | `6ac3f774-d9fb-4796-b3e9-92bf6c81c084` | `50c9509d-22c7-4a22-a47d-8c48425ef4a7` | `6ac3f774-d9fb-4796-b3e9-92bf6c81c084` |
+| `license` | `http://creativecommons.org/licenses/by/4.0/legalcode` | `http://creativecommons.org/licenses/by-nc/4.0/legalcode` | `http://creativecommons.org/licenses/by/4.0/legalcode` |
+
+### Geprüfte Felderklärungen und besprochene Präzisierungen
+
+- `scientificName`: wissenschaftlicher Name der zugeordneten Art einschließlich Namensautor und Jahr; kein unabhängiger Nachweis der korrekten Bestimmung des einzelnen Tieres.
+- `eventDate`: angegebenes Funddatum, gegebenenfalls mit Uhrzeit. `T00:00` allein belegt keine tatsächlich beobachtete Uhrzeit.
+- `decimalLatitude` und `decimalLongitude`: Breitengrad und Längengrad des angegebenen Fundortes.
+- `datasetKey`: Kennung des Herkunftsdatensatzes, der mehrere Fundmeldungen enthalten kann. Die erste und dritte Meldung haben denselben Herkunftsdatensatz. Die einzelne Fundmeldung wird über `key` identifiziert.
+- `license`: Lizenzangabe der bereitgestellten Daten. Die erste und dritte Meldung nennen CC BY 4.0, die zweite CC BY-NC 4.0; die Lizenz muss pro Meldung berücksichtigt werden.
+
+**Prüfergebnis:** Für jede der drei Startarten liegt ein Beispielausschnitt mit
+allen vereinbarten Feldern vor. Die Abfrageanpassung und die Felderklärungen
+erfüllen zusammen mit der fachlichen Vorbereitung die Prüfkriterien von
+Meilenstein 1. Der aktuelle Stand von Meilenstein 2 ist unter „Aktueller Schritt“ dokumentiert.
