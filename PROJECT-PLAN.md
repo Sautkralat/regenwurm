@@ -24,7 +24,7 @@ Die Karte zeigt **dokumentierte Nachweise**, keine vollständigen oder sicher ak
 | Meilenstein / Ergebnis | Lernthema | Mein Anteil | Möglicher Codex-Anteil | Prüfung | Status / Beleg |
 | --- | --- | --- | --- | --- | --- |
 | **1. Daten für drei Arten verstehen:** GBIF-Namen und Kennungen, eine Beispielmeldung je Art sowie geeignete Quellen für Steckbriefe sind dokumentiert. | API, JSON, Datenverständnis und Quellenkritik | **Selbst:** Beispielabfragen ausführen; Artname, Datum, Koordinaten, Quelle und Lizenz untersuchen. | **Codex:** aktuelle Taxonomie, Synonyme und fachliche Quellen prüfen; Grenzen der Artenbestimmung erklären. | Ich kann die benötigten Felder erklären und für jede Art eine passende Fundmeldung zeigen. | geprüft – abgeschlossen am 21.10.2026; fachliche Vorbereitung sowie eigene Beispielmeldungen und Felderklärungen geprüft, Belege unten |
-| **2. Kleinen Datenabruf erstellen:** Python speichert zunächst eine Seite mit Fundmeldungen als unveränderte JSON-Datei. | Requests, Funktionen, Dateien, Exceptions | **Selbst:** Abruf, Speicherung und verständliche Fehlermeldungen schreiben. | **Gemeinsam:** Abfrageparameter, Zeitüberschreitung und HTTP-Fehler besprechen; meinen Code prüfen. | Die Datei lässt sich erneut einlesen; ein fehlgeschlagener Abruf meldet einen verständlichen Fehler. | in Arbeit – pausiert am 21.10.2026; Abruf, Statuscode, Namenszugriff und JSON-Speicherung bestanden; nächster Schritt: Datei selbst mit Python einlesen, siehe Pausenstand |
+| **2. Kleinen Datenabruf erstellen:** Python speichert zunächst eine Seite mit Fundmeldungen als unveränderte JSON-Datei. | Requests, Funktionen, Dateien, Exceptions | **Selbst:** Abruf, Speicherung und verständliche Fehlermeldungen schreiben. | **Gemeinsam:** Abfrageparameter, Zeitüberschreitung und HTTP-Fehler besprechen; meinen Code prüfen. | Die Datei lässt sich erneut einlesen; ein fehlgeschlagener Abruf meldet einen verständlichen Fehler. | geprüft – abgeschlossen am 22.10.2026; Abruf, Speicherung, separates Einlesen und drei Fehlerfälle bestanden; Belege unter „Abschluss von Meilenstein 2“ |
 | **3. SQLite-Datenbank aufbauen:** Arten und Fundmeldungen sind über Schlüssel verknüpft. | Tabellen, Datentypen, Primär- und Fremdschlüssel, Python-SQLite | **Selbst:** Schema und parametrisierten Import schreiben; Transaktionen verwenden. | **Gemeinsam:** Modell prüfen und bei der Zuordnung von GBIF-Namen unterstützen. | Ein JOIN zeigt Artname und Fundort; ein erneuter Import desselben Datensatzes erzeugt keine zusätzliche Zeile. | offen |
 | **4. Verwendbaren Datenstand erzeugen:** Alle Ergebnisse der vereinbarten Abfragen werden seitenweise geladen, geprüft und ausgewertet. | Schleifen, Datenbereinigung, GROUP BY und COUNT | **Selbst:** Import erweitern, unbrauchbare Werte erkennen und SQL-Auswertungen schreiben. | **Gemeinsam:** GBIF-Seitennavigation und Abbruchbedingungen erarbeiten. **Codex:** fachliche Grenzfälle bei Taxonomie und Koordinaten beurteilen. | Importprotokoll nennt übernommene und verworfene Meldungen; SQL-Zählungen stimmen mit dem gespeicherten Bestand überein. | offen |
 | **5. Daten für die Webseite exportieren:** Ein Python-Skript erzeugt JSON aus SQL-Abfragen; drei Kurzporträts liegen mit Quellen vor. | JOINs, JSON-Export und verständliche Datenaufbereitung | **Selbst:** Abfragen und Export schreiben; Porträts in eigenen Worten verfassen. | **Codex:** Exportstruktur für die Karte festlegen sowie Fachangaben und Quellen prüfen. | Export ist gültiges JSON; Fundzahlen stimmen mit SQLite überein; jedes Porträt enthält belegte Aussagen. | offen |
@@ -58,12 +58,32 @@ Ein Planeintrag ist kein Umsetzungsauftrag. Meine Lernbereiche bearbeite ich sel
 
 ## Aktueller Schritt
 
-- **Meilenstein und genau ein Arbeitsauftrag:** Meilenstein 2 – gespeicherte JSON-Daten erneut verwenden. Ich schreibe selbst einen getrennt ausführbaren Abschnitt oder ein kleines eigenes Skript, das `data/regenwurm_rohdaten.json` mit `json.load()` einliest und den wissenschaftlichen Namen der ersten Fundmeldung ausgibt, ohne erneuten API-Abruf.
+- **Meilenstein und genau ein Arbeitsauftrag:** Übergang zu Meilenstein 3 – Datenmodell entwerfen. Ich schlage selbst zwei Tabellen für Arten und Fundmeldungen mit ihren wichtigsten Spalten vor, zunächst ohne SQL-Code. Meilenstein 3 bleibt bis zum Beginn meiner Bearbeitung offen.
 - **Wer bearbeitet ihn?** Ich selbst; Codex unterstützt bei Verständnisfragen.
-- **So prüfen wir das nächste Ergebnis:** Mein Code und die Ausgabe liegen vor; ich erkläre den Unterschied zwischen `json.dump()` und `json.load()`. Der Leseversuch erfolgt ohne API-Abfrage.
-- **Bisheriges Ergebnis / offene Schwierigkeit:** Meilenstein 1 ist abgeschlossen; seine Belege und Prüfgrenzen stehen unten. In Meilenstein 2 sind der API-Abruf, die Ausgabe und Erklärung des Statuscodes `200`, der Zugriff auf den wissenschaftlichen Namen einschließlich Erklärung der Dictionary-Schlüssel und des Listenindex sowie die Speicherung der vollständigen Antwort bestanden. Fehlerbehandlung und Abschlussprüfung von Meilenstein 2 stehen noch aus. Eine Webseite ist noch nicht erstellt.
+- **So prüfen wir das nächste Ergebnis:** Mein Tabellenentwurf zeigt die Verknüpfung einer Fundmeldung mit ihrer Art und das Feld, das doppelte GBIF-Fundmeldungen verhindern kann.
+- **Bisheriges Ergebnis / offene Schwierigkeit:** Meilensteine 1 und 2 sind abgeschlossen; ihre Belege und Prüfgrenzen sind dokumentiert. Für Meilenstein 3 liegt noch kein Tabellenentwurf vor. Eine Webseite ist noch nicht erstellt.
 
-### Pausenstand vom 21.10.2026
+### Abschluss von Meilenstein 2
+
+**Geprüft – abgeschlossen am 22.10.2026.** Die folgenden Ausführungsergebnisse
+wurden von mir im Chat übermittelt und von Codex zusammen mit meinen Erklärungen
+und dem im Verlauf gelesenen Code geprüft. Codex hat die Netzwerk- und Fehlerfalltests
+nicht selbst ausgeführt.
+
+- **Abruf, Speicherung und Einlesen:** Nach Wiederherstellung der ursprünglichen GBIF-URL und `timeout=10` gab `python3 regenwurm.py` den Statuscode `200` und `Lumbricus terrestris Linnaeus, 1758` aus. Anschließend gab `python3 regenwurm_json_einlesen.py` denselben Namen aus der gespeicherten Datei aus, ohne erneuten API-Abruf.
+- **Erklärung:** Ich habe erklärt, dass `json.dump()` Daten als JSON in eine Datei schreibt und `json.load()` JSON aus einer Datei einliest.
+- **Verbindungsfehler:** Der Test mit `https://unsinn` führte zu einem Fehler bei der Namensauflösung und zur abgefangenen Meldung `Verbindungsfehler: …`.
+- **HTTP-Fehler:** Ein nicht vorhandener GBIF-Endpunkt führte zu `HTTP-Fehler: 404 Client Error: Not Found …`. `response.raise_for_status()` steht direkt nach dem Abruf und vor der Verarbeitung und Speicherung.
+- **Timeout:** Ein sehr kleiner positiver Timeout löste eine Zeitüberschreitung beim Verbindungsaufbau aus. Nachdem der `Timeout`-Zweig vor den `ConnectionError`-Zweig verschoben wurde, erschien `API-Fehler: API-Abfrage wegen Zeitüberschreitung fehlgeschlagen.` Die Reihenfolge ist relevant, weil `ConnectTimeout` zu beiden Fehlerklassen gehört.
+
+**Prüfergebnis:** Die Datei lässt sich erneut einlesen; die drei geprüften
+Abruffehler werden verständlich gemeldet. Die vereinbarten Kriterien von
+Meilenstein 2 sind erfüllt.
+
+### Historischer Pausenstand vom 21.10.2026
+
+Dieser Abschnitt hält den damaligen Stand fest. Er wurde durch den Abschluss
+vom 22.10.2026 überholt; für die Fortsetzung gilt „Aktueller Schritt“ oben.
 
 - **Status:** Meilenstein 2 ist in Arbeit; auf meinen Wunsch pausiert. Nach dem Neustart beim oben genannten Lernauftrag fortsetzen.
 - **Vorhandener Code:** `regenwurm.py` ruft eine Seite von GBIF ab, wandelt die Antwort mit `response.json()` um und speichert das vollständige Objekt mit `json.dump()` nach `data/regenwurm_rohdaten.json`. Der Dateipfad wird relativ zum Skript über `Path(__file__).parent` gebildet. Ausgegeben werden Statuscode und wissenschaftlicher Name der ersten Fundmeldung.
