@@ -25,7 +25,7 @@ Die Karte zeigt **dokumentierte Nachweise**, keine vollständigen oder sicher ak
 | --- | --- | --- | --- | --- | --- |
 | **1. Daten für drei Arten verstehen:** GBIF-Namen und Kennungen, eine Beispielmeldung je Art sowie geeignete Quellen für Steckbriefe sind dokumentiert. | API, JSON, Datenverständnis und Quellenkritik | **Selbst:** Beispielabfragen ausführen; Artname, Datum, Koordinaten, Quelle und Lizenz untersuchen. | **Codex:** aktuelle Taxonomie, Synonyme und fachliche Quellen prüfen; Grenzen der Artenbestimmung erklären. | Ich kann die benötigten Felder erklären und für jede Art eine passende Fundmeldung zeigen. | geprüft – abgeschlossen am 21.10.2026; fachliche Vorbereitung sowie eigene Beispielmeldungen und Felderklärungen geprüft, Belege unten |
 | **2. Kleinen Datenabruf erstellen:** Python speichert zunächst eine Seite mit Fundmeldungen als unveränderte JSON-Datei. | Requests, Funktionen, Dateien, Exceptions | **Selbst:** Abruf, Speicherung und verständliche Fehlermeldungen schreiben. | **Gemeinsam:** Abfrageparameter, Zeitüberschreitung und HTTP-Fehler besprechen; meinen Code prüfen. | Die Datei lässt sich erneut einlesen; ein fehlgeschlagener Abruf meldet einen verständlichen Fehler. | geprüft – abgeschlossen am 22.10.2026; Abruf, Speicherung, separates Einlesen und drei Fehlerfälle bestanden; Belege unter „Abschluss von Meilenstein 2“ |
-| **3. SQLite-Datenbank aufbauen:** Arten und Fundmeldungen sind über Schlüssel verknüpft. | Tabellen, Datentypen, Primär- und Fremdschlüssel, Python-SQLite | **Selbst:** Schema und parametrisierten Import schreiben; Transaktionen verwenden. | **Gemeinsam:** Modell prüfen und bei der Zuordnung von GBIF-Namen unterstützen. | Ein JOIN zeigt Artname und Fundort; ein erneuter Import desselben Datensatzes erzeugt keine zusätzliche Zeile. | offen |
+| **3. SQLite-Datenbank aufbauen:** Arten und Fundmeldungen sind über Schlüssel verknüpft. | Tabellen, Datentypen, Primär- und Fremdschlüssel, Python-SQLite | **Selbst:** Schema und parametrisierten Import schreiben; Transaktionen verwenden. | **Gemeinsam:** Modell prüfen und bei der Zuordnung von GBIF-Namen unterstützen. | Ein JOIN zeigt Artname und Fundort; ein erneuter Import desselben Datensatzes erzeugt keine zusätzliche Zeile. | in Arbeit – auf Wunsch pausiert am 22.10.2026; Tabellenentwurf im Chat geprüft, noch kein SQL vorgelegt; Wiedereinstieg siehe aktueller Pausenstand |
 | **4. Verwendbaren Datenstand erzeugen:** Alle Ergebnisse der vereinbarten Abfragen werden seitenweise geladen, geprüft und ausgewertet. | Schleifen, Datenbereinigung, GROUP BY und COUNT | **Selbst:** Import erweitern, unbrauchbare Werte erkennen und SQL-Auswertungen schreiben. | **Gemeinsam:** GBIF-Seitennavigation und Abbruchbedingungen erarbeiten. **Codex:** fachliche Grenzfälle bei Taxonomie und Koordinaten beurteilen. | Importprotokoll nennt übernommene und verworfene Meldungen; SQL-Zählungen stimmen mit dem gespeicherten Bestand überein. | offen |
 | **5. Daten für die Webseite exportieren:** Ein Python-Skript erzeugt JSON aus SQL-Abfragen; drei Kurzporträts liegen mit Quellen vor. | JOINs, JSON-Export und verständliche Datenaufbereitung | **Selbst:** Abfragen und Export schreiben; Porträts in eigenen Worten verfassen. | **Codex:** Exportstruktur für die Karte festlegen sowie Fachangaben und Quellen prüfen. | Export ist gültiges JSON; Fundzahlen stimmen mit SQLite überein; jedes Porträt enthält belegte Aussagen. | offen |
 | **6. Lokale Webseite fertigstellen:** Karte, Artenauswahl, Funddetails, Porträts und Quellen funktionieren zusammen. | HTML/CSS und JavaScript-Ereignisse; neue Kartenintegration | **Selbst:** Texte, einfache Seitenstruktur und Gestaltung bearbeiten; bekannte DOM- und Ereignisgrundlagen anwenden. | **Codex:** Leaflet, Laden der JSON-Dateien, Marker und Kartenfilter integrieren; lokalen Start einrichten und erklären. | Artenwechsel zeigt passende Punkte und Porträts; Fundpunkte nennen Datum und Quelle; leere oder nicht ladbare Daten werden verständlich angezeigt. | offen |
@@ -58,10 +58,33 @@ Ein Planeintrag ist kein Umsetzungsauftrag. Meine Lernbereiche bearbeite ich sel
 
 ## Aktueller Schritt
 
-- **Meilenstein und genau ein Arbeitsauftrag:** Übergang zu Meilenstein 3 – Datenmodell entwerfen. Ich schlage selbst zwei Tabellen für Arten und Fundmeldungen mit ihren wichtigsten Spalten vor, zunächst ohne SQL-Code. Meilenstein 3 bleibt bis zum Beginn meiner Bearbeitung offen.
+- **Meilenstein und genau ein Arbeitsauftrag:** Meilenstein 3 – erste Tabelle in SQL beschreiben. Nach der Pause schreibe ich selbst nur die `CREATE TABLE`-Anweisung für `arten` und zeige sie vor dem Ausführen.
 - **Wer bearbeitet ihn?** Ich selbst; Codex unterstützt bei Verständnisfragen.
-- **So prüfen wir das nächste Ergebnis:** Mein Tabellenentwurf zeigt die Verknüpfung einer Fundmeldung mit ihrer Art und das Feld, das doppelte GBIF-Fundmeldungen verhindern kann.
-- **Bisheriges Ergebnis / offene Schwierigkeit:** Meilensteine 1 und 2 sind abgeschlossen; ihre Belege und Prüfgrenzen sind dokumentiert. Für Meilenstein 3 liegt noch kein Tabellenentwurf vor. Eine Webseite ist noch nicht erstellt.
+- **So prüfen wir das nächste Ergebnis:** Die Anweisung definiert `art_id` als `INTEGER`-Primärschlüssel und `name` als verpflichtendes `TEXT`-Feld, das kein `NULL` erlaubt.
+- **Bisheriges Ergebnis / offene Schwierigkeit:** Meilensteine 1 und 2 sind abgeschlossen. Für Meilenstein 3 wurde mein Tabellenentwurf mit Schlüsseln, Datentypen und NULL-Regeln im Chat geprüft. SQL wurde noch nicht vorgelegt; Tabellenanlage, Import, JOIN und Duplikatprüfung stehen noch aus. Eine Webseite ist noch nicht erstellt.
+
+### Pausenstand vom 22.10.2026 – Meilenstein 3
+
+- **Status:** in Arbeit, auf meinen Wunsch pausiert.
+- **Geprüftes Ergebnis:** Mein im Chat formulierter Entwurf verknüpft Arten und Fundmeldungen über `art_id`. `fund_id` enthält die GBIF-Fundkennung, damit dieselbe Fundmeldung beim erneuten Import erkannt und eine doppelte Speicherung verhindert werden kann. Der Entwurf ist noch keine ausgeführte Datenbankstruktur.
+
+| Tabelle | Spalte | Datentyp | NULL erlaubt? | Schlüssel / Bedeutung |
+| --- | --- | --- | --- | --- |
+| `arten` | `art_id` | `INTEGER` | nein | Primärschlüssel |
+| `arten` | `name` | `TEXT` | nein | Wissenschaftlicher Artname |
+| `fundmeldungen` | `fund_id` | `INTEGER` | nein | Primärschlüssel; GBIF-Fundkennung |
+| `fundmeldungen` | `art_id` | `INTEGER` | nein | Fremdschlüssel auf `arten.art_id` |
+| `fundmeldungen` | `datum` | `TEXT` | ja | Vorhandenes Funddatum |
+| `fundmeldungen` | `breitengrad` | `REAL` | nein | Breitengrad des Fundortes |
+| `fundmeldungen` | `laengengrad` | `REAL` | nein | Längengrad des Fundortes |
+| `fundmeldungen` | `koordinatenunsicherheit` | `REAL` | ja | Unsicherheit in Metern, auch mit Nachkommastellen |
+| `fundmeldungen` | `herkunftsdatensatz` | `TEXT` | nein | Kennung des Herkunftsdatensatzes |
+| `fundmeldungen` | `lizenz` | `TEXT` | ja | Lizenzangabe; unbekannt bleibt `NULL` |
+| `fundmeldungen` | `abrufdatum` | `TEXT` | nein | Datum des Datenabrufs |
+
+- **Genauer Wiedereinstieg:** Codex liest beim nächsten Arbeitsgang zuerst den Projektplan und nennt erneut genau die oben beschriebene Aufgabe für `arten`, ohne die SQL-Lösung vorzugeben. Ich schreibe die Anweisung selbst und zeige sie vor dem Ausführen; danach prüft Codex sie anhand des genannten Kriteriums.
+- **Vor dem Herunterfahren:** Alle offenen Editor-Dateien speichern.
+- **Startnachricht beim nächsten Arbeitsgang:** „Bitte am Pausenstand von Meilenstein 3 weitermachen.“
 
 ### Abschluss von Meilenstein 2
 
